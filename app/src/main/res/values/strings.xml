@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Call Blocker</string>
+    <string name="blocked_contacts">Blocked Contacts</string>
+</resources>
