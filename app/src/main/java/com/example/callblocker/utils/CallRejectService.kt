@@ -9,7 +9,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LifecycleService
 import com.android.internal.telephony.ITelephony
-import com.example.callblocker.db.PhoneEntry
 import com.example.callblocker.viewmodel.EntryViewModel
 import java.lang.reflect.Method
 
@@ -31,14 +30,14 @@ class CallRejectService : LifecycleService() {
             m.isAccessible = true
             telephonyService = m.invoke(tm) as ITelephony
             if (number != null) {
-                EntryViewModel(application).allBlockedNumber.observe(this) {
-                   if(it.contains(PhoneEntry(number))){
-                       telephonyService.endCall()
-                       Toast.makeText(this, "Ending the call from: $number", Toast.LENGTH_SHORT)
-                           .show()
-                   }else{
-                       Log.e("CalledOR", "HERE")
-                   }
+                EntryViewModel(application).getNumbers.observe(this) {
+                    if (it.contains(number)) {
+                        telephonyService.endCall()
+                        Toast.makeText(this, "Ending the call from: $number", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        Log.e("CalledOR", "HERE")
+                    }
                 }
             }
         } catch (e: Exception) {

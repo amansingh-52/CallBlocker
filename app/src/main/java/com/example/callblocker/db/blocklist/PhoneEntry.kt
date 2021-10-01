@@ -1,4 +1,4 @@
-package com.example.callblocker.db
+package com.example.callblocker.db.blocklist
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
