@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.callblocker.R
 import com.example.callblocker.utils.Constants
+import com.example.callblocker.utils.MyApplication
 import com.example.callblocker.viewmodel.EntryViewModel
 
 

@@ -30,12 +30,6 @@ class IncomingCallReceiver : BroadcastReceiver() {
                 
                 Toast.makeText(context, "Ring $number", Toast.LENGTH_SHORT).show()
             }
-            if (state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK, ignoreCase = true)) {
-                Toast.makeText(context, "Answered $number", Toast.LENGTH_SHORT).show()
-            }
-            if (state.equals(TelephonyManager.EXTRA_STATE_IDLE, ignoreCase = true)) {
-                Toast.makeText(context, "Idle $number", Toast.LENGTH_SHORT).show()
-            }
         } catch (e: Exception) {
             e.printStackTrace()
         }

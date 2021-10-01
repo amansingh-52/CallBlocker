@@ -17,6 +17,7 @@ import com.example.callblocker.R
 import com.example.callblocker.adapter.BlockListAdapter
 import com.example.callblocker.db.blocklist.PhoneEntry
 import com.example.callblocker.utils.Constants.SELECT_PHONE_NUMBER
+import com.example.callblocker.utils.ModelNumber
 import com.example.callblocker.viewmodel.EntryViewModel
 import com.google.android.material.textfield.TextInputEditText
 
@@ -90,12 +91,7 @@ class AddToBlockList : AppCompatActivity(), BlockListAdapter.OnClick {
 
     private fun insertNumberInDB(number: String): Boolean {
 
-        var num = number
-        num = num.replace(" ", "")
-        if (num[0] == '0')
-            num = number.substring(0)
-        if (!num.contains("+"))
-            num = "+91$num"
+        val num = ModelNumber.modelNumber(number)
 
         if (isValidMobile(num)) {
             if (!numberList.contains(num)) {
