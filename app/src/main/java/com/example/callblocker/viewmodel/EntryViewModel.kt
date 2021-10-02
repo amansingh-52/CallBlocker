@@ -21,6 +21,8 @@ class EntryViewModel(application: Application): AndroidViewModel(application) {
         val dao = EntryDatabase.getDatabase(application).entryDao()
         repository = EntryRepository(dao)
         allBlockedNumber = repository.allBlockedNumber
+
+
         getNumbers = repository.getNumbers
     }
 
