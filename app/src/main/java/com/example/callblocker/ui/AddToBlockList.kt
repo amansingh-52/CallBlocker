@@ -36,6 +36,7 @@ class AddToBlockList : AppCompatActivity(), BlockListAdapter.OnClick {
         numberList = ArrayList()
         adapters = BlockListAdapter(this, this, list)
         setUpUI()
+
         setUpRV()
         initObservers()
         setUpOnClick()
